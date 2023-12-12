@@ -1,0 +1,20 @@
+{% if question %}
+    <h1>{{ question }}</h1>
+    <div style="width: 300px; display:grid; border: 1px solid black; padding: 10px; border-radius: 5px; text-decoration: none; color:black;">
+    {{question.question_text}}
+    {% for choice in question.choice_set.all %}
+        <p style="border: 1px solid black; padding: 10px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:black; display:inline-flex; justify-content: space-between;">
+            <span>{{ choice.choice_text }}</span>
+            <span style="color:blue">vote: {{ choice.votes }}</span>
+        </p>
+    {% endfor %}
+    <a href="{% url 'polls:index' %}" style="border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkgreen">
+        <span>Back to list</span>
+    </a>
+    <a href="{% url 'polls:results' question.id %}" style="border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkblue">
+        <span>Results</span>
+    </a>
+    </div>
+{% else %}
+    <p>No polls details.</p>
+{% endif %}
