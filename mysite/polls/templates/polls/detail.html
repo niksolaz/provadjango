@@ -8,13 +8,25 @@
             <span style="color:blue">vote: {{ choice.votes }}</span>
         </p>
     {% endfor %}
-    <a href="{% url 'polls:index' %}" style="border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkgreen">
+    <a href="{% url 'polls:index' %}" style="text-align: center; border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkgreen">
         <span>Back to list</span>
     </a>
-    <a href="{% url 'polls:results' question.id %}" style="border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkblue">
+    <a href="{% url 'polls:results' question.id %}" style="text-align: center; border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkblue">
         <span>Results</span>
     </a>
     </div>
 {% else %}
     <p>No polls details.</p>
 {% endif %}
+<form action="{% url 'polls:vote' question.id %}" method="post" style="width: 300px; border: 1px solid black; border-radius: 5px; padding:10px; margin-top:10px;">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ question.question_text }}</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="Vote" style="width: 100%; border: 1px solid #933500; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:#933500; background-color:#febd99">
+    </form>
