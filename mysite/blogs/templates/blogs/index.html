@@ -1,14 +1,81 @@
-{% if list_blog %}
-    <div style="width: 300px; display:grid;">
-    {% for blog in list_blog %}
-        <a href="#" style="border: 1px solid black; padding: 10px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:black;">
-            <h1>{{ blog.title }}</h1>
-            <p>{{ blog.pub_date }}</p>
-            <hr style="margin: 0px;">
-            <img src="{{ blog.image.url}}" alt="">
-            <article>{{ blog.body }}</article>
-        </a>
-    {% endfor %}
-{% else %}
-    <p>No Blogs are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: center;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .box {
+            width: 400px;
+            border: 1px solid black; 
+            margin: 20px 10px 20px 10px;
+            padding: 20px 10px 20px 10px;
+            border-radius: 5px; 
+            box-shadow: 0px 10px 10px 0px #818080;
+        }
+        .box a {
+            text-decoration: none; 
+            color:black;
+        }
+        .box:hover {
+            background-color: #e7e5e5;
+            box-shadow: 0px 2px 2px 0px #818080;
+        }
+        .box:focus {
+            background-color: #c4c3c3;
+            box-shadow: 0px 2px 2px 0px #818080;
+        }
+        hr {
+            border: 1px solid black;
+            padding: 0px 10px 0px 10px;
+        }
+        img {
+            width: 100%;
+            border-radius: 5px;
+            height: 200px;
+            object-fit: cover;
+        }
+        p {
+            font-size: 14px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #818080;
+        }
+        article {
+            font-size: 16px;
+            margin: 20px 0px 20px 0px;
+        }
+    </style>
+</head>
+<body>
+    {% if blogs %}
+        <div class="container">
+        {% for blog in blogs %}
+            <div class="box">
+                <a href="{% url 'blogs:detail' blog.id %}">
+                    <h1>{{ blog.title }}</h1>
+                    <p>{{ blog.pub_date_pretty }}</p>
+                    <hr>
+                    <img src="{{ blog.image.url }}" alt="">
+                    <article>{{ blog.summary }}</article>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>No Blogs are available.</p>
+    {% endif %}
+</body>
+</html>

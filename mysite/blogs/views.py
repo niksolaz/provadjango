@@ -5,10 +5,10 @@ from django.urls import reverse
 
 # Create your views here.
 def index(request):
-    list_blog = Blog.objects.all()
+    blogs = Blog.objects.all()
     template = 'blogs/index.html'
     context = {
-        'list_blog': list_blog
+        'blogs': blogs
     }
     return render(request, template, context)
     
@@ -22,5 +22,6 @@ def detail(request, blog_id):
         }
     except Blog.DoesNotExist:
         raise Http404("Blog does not exist")
+        
     return render(request, template, context)
 
