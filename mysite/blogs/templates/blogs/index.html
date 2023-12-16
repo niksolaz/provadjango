@@ -1,0 +1,14 @@
+{% if list_blog %}
+    <div style="width: 300px; display:grid;">
+    {% for blog in list_blog %}
+        <a href="#" style="border: 1px solid black; padding: 10px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:black;">
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.pub_date }}</p>
+            <hr style="margin: 0px;">
+            <img src="{{ blog.image.url}}" alt="">
+            <article>{{ blog.body }}</article>
+        </a>
+    {% endfor %}
+{% else %}
+    <p>No Blogs are available.</p>
+{% endif %}

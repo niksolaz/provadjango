@@ -1,0 +1,14 @@
+{% if blog %}
+    <h1>{{ blog.title }}</h1>
+    <span>{{ blog.pub_date }}</span>
+    <div style="width: 300px; display:grid; border: 1px solid black; padding: 10px; border-radius: 5px; text-decoration: none; color:black;">
+        <p style="border: 1px solid black; padding: 10px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:black; display:inline-flex; justify-content: space-between;">
+            <span>{{ blog.body}}</span>
+        </p>
+        <a href="{% url 'blogs:index' %}" style="text-align: center; border: 1px solid black; padding: 10px; margin-top: 40px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:white; background-color:darkgreen">
+            <span>Back to list</span>
+        </a>
+    </div>
+{% else %}
+    <p>No blog details.</p>
+{% endif %}
