@@ -1,7 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/index.css' %}">
+
 {% if latest_question_list %}
-    <div style="width: 300px; display:grid;">
+    <div>
     {% for question in latest_question_list %}
-        <a href="{% url 'polls:detail' question.id %}" style="border: 1px solid black; padding: 10px; margin-bottom: 3px; border-radius: 5px; text-decoration: none; color:black;">
+        <a href="{% url 'polls:detail' question.id %}">
             <span>{{ question.question_text }}</span>
         </a>
     {% endfor %}

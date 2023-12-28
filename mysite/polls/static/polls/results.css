@@ -1,0 +1,31 @@
+a {
+    border: 1px solid black; 
+    padding: 10px; 
+    margin-top: 40px; 
+    margin-bottom: 3px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    color:white; 
+    background-color:darkgreen
+}
+
+div {
+    display: grid;
+    width: 300px;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 40px;
+    padding: 10px;
+    width: 300px;
+}
+
+li {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    text-decoration: none;
+    color:rebeccapurple;
+}

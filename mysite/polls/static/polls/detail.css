@@ -1,0 +1,133 @@
+:root {
+    --form-control-color: rebeccapurple;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+div {
+    width: 300px;
+    display:grid;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color:black;
+}
+
+p {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    text-decoration: none;
+    color:black;
+    display:inline-flex;
+    justify-content: space-between;
+}
+
+form {
+    width: 300px; 
+    border: 1px solid black; 
+    border-radius: 5px; 
+    padding:10px; 
+    margin-top:10px;
+}
+
+label {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+label span {
+    text-align: left;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+input[type=submit] {
+    width: 100%; 
+    border: 1px solid #933500; 
+    padding: 10px; 
+    margin-top: 40px; 
+    margin-bottom: 3px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    color:#933500; 
+    background-color:#febd99
+}
+
+input[type=radio]:checked + label {
+    color:#933500; 
+    font-weight: bold;
+}
+
+input[type=radio] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="radio"]:focus {
+    border-color: var(--form-control-color);
+}
+
+.vote {
+    color:green;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.btn-back-to-list {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    text-decoration: none;
+    color:white;
+    background-color:darkgreen
+}
+
+.btn-results {
+    text-align: center; 
+    border: 1px solid black; 
+    padding: 10px; 
+    margin-top: 40px; 
+    margin-bottom: 3px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    color:white; 
+    background-color:darkblue
+}
+
