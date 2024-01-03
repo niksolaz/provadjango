@@ -5,9 +5,10 @@
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
 :root {
-    --primary: #79aec8;
-    --secondary: #417690;
-    --accent: #f5dd5d;
+    --primary: #33d89b;
+    --secondary: #014f34;
+    --terziary: #FFBE98;
+    --accent: #0d5b59;
     --primary-fg: #fff;
 
     --body-fg: #333;
@@ -17,7 +18,7 @@ html[data-theme="light"],
 
     --header-color: #ffc;
     --header-branding-color: var(--accent);
-    --header-bg: var(--secondary);
+    --header-bg: var(--terziary);
     --header-link-color: var(--primary-fg);
 
     --breadcrumbs-fg: #c4dce8;
@@ -25,7 +26,7 @@ html[data-theme="light"],
     --breadcrumbs-bg: #264b5d;
 
     --link-fg: #417893;
-    --link-hover-color: #036;
+    --link-hover-color: rgb(6, 104, 202);
     --link-selected-fg: var(--secondary);
 
     --hairline-color: #e8e8e8;
@@ -88,12 +89,14 @@ html[data-theme="light"],
 
 html, body {
     height: 100%;
+
 }
 
 body {
     margin: 0;
     padding: 0;
     font-size: 0.875rem;
+    font-weight: 500;
     font-family: var(--font-family-primary);
     color: var(--body-fg);
     background: var(--body-bg);
@@ -125,7 +128,7 @@ a.section:link, a.section:visited {
 }
 
 a.section:focus, a.section:hover {
-    text-decoration: underline;
+    text-decoration: underline;;
 }
 
 /* GLOBAL DEFAULTS */
