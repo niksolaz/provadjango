@@ -14,7 +14,9 @@ class BlogModelTests(TestCase):
         pub_date_pretty() returns the pub_date with future blog.
         """
         time = timezone.now() + datetime.timedelta(days=30)
+        timeNow = timezone.now()
         future_blog = Blog(pub_date=time)
-        self.assertIs(future_blog.pub_date_pretty() != '30 Dec 2018, 00:00', True)
+        actual_blog = Blog(pub_date=timeNow) 
+        self.assertIs(future_blog.pub_date_pretty() != actual_blog.pub_date_pretty(), True)
     
     
